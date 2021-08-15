@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class FormField extends Component {
-    render() {
-        return (
-            <div className="FormField">
-                <label>{this.props.label}</label>
-                <input></input>
-                
-            </div>
-        )
+const FormField = (props) => {
+    function classNameType () {
+        return (props.children.type === "textarea" ? " textarea" : "")
     }
+    return (
+        <div className={"FormField" + classNameType()}>
+            <label htmlFor={props.htmlFor}>{props.label}</label>
+            {props.children}
+        </div>
+    )
 }
 
 export default FormField
+
